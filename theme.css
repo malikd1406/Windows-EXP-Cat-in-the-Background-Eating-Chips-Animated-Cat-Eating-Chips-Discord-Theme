@@ -1,0 +1,60 @@
+
+/**
+ * @name Bliss Cat Theme
+ * @author MAIL
+ * @description A clean glass theme with the classic Bliss background.
+ * @version 1.0.0
+ */
+
+@import url("https://discord-mica.pages.dev/src/main.css");
+
+:root {
+  --bg-gif: url("https://i.imgur.com/pf0GKPf.gif");
+  --bg-blur: 2px;
+  --panel-opacity: 0.1;
+  --glass-blur: 1px;
+  --accent-color: rgb(76, 194, 255);
+  --dark-bg: rgba(0, 0, 0, var(--panel-opacity));
+  --dark-flyout: rgba(20, 20, 20, 0.6);
+  --dark-accent: var(--accent-color);
+  --dark-accent-hovered: rgb(65, 163, 214);
+  --dark-accent-font-color: black;
+  --dark-button: rgba(255, 255, 255, 0.15);
+  --dark-button-border: rgba(255, 255, 255, 0.25);
+  --dark-button-font-color: white;
+  --dark-background-accent: rgba(0, 0, 0, var(--panel-opacity));
+  --dark-status-panel: rgba(0, 0, 0, 0.3);
+  --light-bg: transparent;
+  --light-flyout: rgb(255, 255, 255);
+  --light-accent: rgb(0, 120, 212);
+  --light-accent-hovered: rgb(0, 94, 167);
+  --light-accent-font-color: white;
+  --light-button: rgb(251,251,251);
+  --light-button-border: rgb(204, 204, 231);
+  --light-button-font-color: black;
+  --light-background-accent: rgba(160,160,160,0.9);
+  --light-status-panel: rgba(255,255,255,0.4);
+  --custom-app-top-bar-height: calc(24px + var(--space-sm));
+  --title-bar-icon: flex;
+}
+
+body {
+  background-image: var(--bg-gif) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+[class*="sidebar"], [class*="channels"], [class*="guilds"], [class*="chat"] {
+  background: rgba(0, 0, 0, var(--panel-opacity)) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+}
+
+[class*="channelTextArea"], [class*="textArea"] {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+}
