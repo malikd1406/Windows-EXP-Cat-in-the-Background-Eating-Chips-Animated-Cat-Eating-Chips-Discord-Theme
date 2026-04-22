@@ -1,59 +1,76 @@
 /**
- * @name Windows Bliss Cat
- * @author MAIL
- * @description Windows XP Bliss background with an animated cat.
- * @version 1.0.0
+ * @name Windows XP Cat Eating Chips
+ * @author mail (nottheofficaltext)
+ * @description Optimized Windows XP Bliss theme with an animated cat.
+ * @version 1.2.0
+ * @source https://github.com/malikd1406/Windows-EXP-Cat-in-the-Background-Eating-Chips-Animated-Cat-Eating-Chips-Discord-Theme
  */
+
+/* SETUP:
+   1. Get Vencord: https://vencord.dev/download
+   2. Discord Settings > Vencord > Themes
+   3. Paste this into "QuickCSS" or use the GitHub Raw URL.
+*/
 
 @import url("https://discord-mica.pages.dev/src/main.css");
 
 :root {
-  --bg-gif: url("https://i.imgur.com/pf0GKPf.gif");
+  --bg-gif: url("https://i.imgur.com/pf0GKPf.gif"); 
   --bg-blur: 2px;
-  --panel-opacity: 0.1;
-  --glass-blur: 1px;
-  --accent-color: rgb(76, 194, 255);
+  --panel-opacity: 0.12;
+  --glass-blur: 12px;
+  --accent-color: #4cc2ff; 
+
   --dark-bg: rgba(0, 0, 0, var(--panel-opacity));
-  --dark-flyout: rgba(20, 20, 20, 0.6);
+  --dark-flyout: rgba(15, 15, 15, 0.85);
   --dark-accent: var(--accent-color);
-  --dark-accent-hovered: rgb(65, 163, 214);
-  --dark-accent-font-color: black;
-  --dark-button: rgba(255, 255, 255, 0.15);
-  --dark-button-border: rgba(255, 255, 255, 0.25);
-  --dark-button-font-color: white;
-  --dark-background-accent: rgba(0, 0, 0, var(--panel-opacity));
-  --dark-status-panel: rgba(0, 0, 0, 0.3);
-  --light-bg: transparent;
-  --light-flyout: rgb(255, 255, 255);
-  --light-accent: rgb(0, 120, 212);
-  --light-accent-hovered: rgb(0, 94, 167);
-  --light-accent-font-color: white;
-  --light-button: rgb(251,251,251);
-  --light-button-border: rgb(204, 204, 231);
-  --light-button-font-color: black;
-  --light-background-accent: rgba(160,160,160,0.9);
-  --light-status-panel: rgba(255,255,255,0.4);
-  --custom-app-top-bar-height: calc(24px + var(--space-sm));
-  --title-bar-icon: flex;
+  --dark-button: rgba(255, 255, 255, 0.08);
+  --dark-status-panel: rgba(0, 0, 0, 0.4);
+
+  --custom-app-top-bar-height: 32px;
 }
 
+/* Fix background lag */
 body {
-  background-image: var(--bg-gif) !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
+  background: var(--bg-gif) center/cover no-repeat fixed !important;
+  image-rendering: optimizeSpeed;
 }
 
-[class*="sidebar"], [class*="channels"], [class*="guilds"], [class*="chat"] {
+/* Transparency */
+[class*="sidebar"], 
+[class*="channels"], 
+[class*="guilds"], 
+[class*="chat"], 
+[class*="container_"] {
   background: rgba(0, 0, 0, var(--panel-opacity)) !important;
-  backdrop-filter: blur(var(--glass-blur)) !important;
-  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(120%) !important;
 }
 
-[class*="channelTextArea"], [class*="textArea"] {
+/* typing box */
+[class*="channelTextArea"], 
+[class*="textArea"] {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  transition: background 0.2s ease;
+}
+
+/* Typing box effect */
+[class*="channelTextArea"]:hover {
   background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(var(--glass-blur)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 12px !important;
+}
+
+/* scrollbars */
+::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 20px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
 }
